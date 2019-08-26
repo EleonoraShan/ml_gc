@@ -31,7 +31,7 @@ TRAINING_OUTPUTS_DIRNAME   = 'outputsTraining'
 VALIDATION_OUTPUTS_DIRNAME = 'outputsValidation'
 TESTING_OUTPUTS_DIRNAME    = 'outputsTesting'
 
-tf.Session(config=tf.ConfigProto(allow_soft_placement=True, log_device_placement=True))
+session=tf.Session(config=tf.ConfigProto(allow_soft_placement=True, log_device_placement=True))
 # exception classes
 class MilestoneError(RuntimeError):
     """ Exception raised for missing milestone """
@@ -191,16 +191,10 @@ def loop(args):
 
     # derived files and directories
     base_dir        = args.base_directory
-    print('base_dir=', base_dir)
     run_dir         = os.path.join(base_dir, RUNS_DIRNAME,        configs['run'].names['run'], configs['run'].names['dataset'])
-    print('run_dir=', run_dir)
     data_dir        = os.path.join(base_dir, DATAS_DIRNAME,       configs['run'].names['dataset'])
-    print('data_dir=', data_dir)
     checkpoints_dir = os.path.join(run_dir,  CHECKPOINTS_DIRNAME, '')
-    print('checkpoints_dir=', checkpoints_dir)
-
     logs_dir        = os.path.join(run_dir,  LOGS_DIRNAME,        '')
-    print('logs_dir=', logs_dir)
     stdout_err_file = os.path.join(base_dir, LOGS_DIRNAME,        configs['run'].names['run'] + '.log')
     alphabet_file   = os.path.join(data_dir, ALPHABETS_DIRNAME,   configs['run'].names['alphabet'] + '.csv') if configs['run'].names['alphabet'] is not None else None
 
