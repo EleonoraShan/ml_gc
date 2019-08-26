@@ -10,7 +10,7 @@ function getRandomColor() {
 
 // Automatically load level 2, location 51 data when HTML is first opened
 window.onload = function(){
-  d3.csv('taxa-bar-plot-level-2.csv').then(makeChart);
+  d3.csv("https://github.com/EleonoraShan/ml_gc/blob/master/taxa-bar-plot-level-2.csv").then(makeChart);
 }
 
 
@@ -20,7 +20,7 @@ var pie_chart;
 
 function newChart(){
 
-  var csvFile = 'taxa-bar-plot-level-'' + document.getElementById("levelSelect").value + ".csv"
+  var csvFile = 'https://github.com/EleonoraShan/ml_gc/blob/master/taxa-bar-plot-level-'' + document.getElementById("levelSelect").value + ".csv"
   d3.csv(csvFile).then(makeChart);
 }
 
